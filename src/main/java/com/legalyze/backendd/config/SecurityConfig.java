@@ -36,7 +36,14 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
 
         // ✅ Use allowedOriginPatterns instead of allowedOrigins when allowCredentials = true
-        configuration.setAllowedOriginPatterns(List.of("http://localhost:5173")); 
+        configuration.setAllowedOriginPatterns(List.of(
+                "http://localhost:5173",
+                "http://localhost:4173",
+                "http://127.0.0.1:5173",
+                "http://127.0.0.1:4173",
+                "https://*.netlify.app",
+                "https://*.vercel.app"
+            ));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
